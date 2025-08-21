@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jinesh Patil — Portfolio</title>
+  <meta name="description" content="Jinesh Patil — Chemical Engineer transitioning to Web Development & Data Science. Portfolio showcasing projects, skills and contact details." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* -----------------------------
+       CSS Variables & Reset
+       ----------------------------- */
+    :root{
+      --bg:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      --card: #101520;
+      --muted: #6d7e95;
+      --accent-color: #4d8090;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --max-width: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071020 0%, #071a2a 60%);scroll-behavior:smooth}
+    a{color:inherit}
+    img{max-width:100%;display:block}
+
+
+    /* -----------------------------
+       Layout & Header
+       ----------------------------- */
+    header{position:fixed;top:0;left:0;right:0;backdrop-filter: blur(6px);background:linear-gradient(180deg,rgba(7,16,32,0.6), rgba(7,16,32,0.35));border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand__logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,#6f7cff,#00d4ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .brand__text{font-weight:700}
+
+    /* Primary nav */
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+    nav a:hover{color:white;background:var(--glass)}
+
+    /* -----------------------------
+       Hero
+       ----------------------------- */
+    .hero{min-height:80vh;display:grid;place-items:center;padding:110px 20px 60px}
+    .hero__card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:40px;box-shadow:0 10px 30px rgba(3,8,18,0.6);display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center}
+    .hero h1{margin:0;font-size:clamp(26px,4vw,40px);line-height:1.02}
+    .hero p{color:var(--muted);margin:10px 0 20px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent-color);color:white;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(111,124,255,0.18)}
+    
+    .hero__photo{background:linear-gradient(180deg,#0f1724, #071a2a);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .profile{border-radius:10px;overflow:hidden}
+
+    /* -----------------------------
+       Sections
+       ----------------------------- */
+    section{padding:60px 20px}
+    .section-title{max-width:var(--max-width);margin:0 auto 28px;color:#dfe9fb;display:flex;align-items:center;gap:12px}
+    .section-title h2{margin:0;font-size:20px}
+    .section-grid{max-width:var(--max-width);margin:0 auto;display:grid;gap:20px}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+    .card{background:var(--card);padding:21px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .about .bio p{color:var(--muted);margin-top:10px}
+
+    /* Skills */
+    .skill-list{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted)}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:8px 0}
+    .project p{color:var(--muted);font-size:0.95rem}
+    .project .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+    /* Resume */
+    .resume-actions{display:flex;gap:12px;align-items:center}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    form input, form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    form button{margin-top:8px}
+
+    /* Footer */
+    footer{padding:28px 20px;background:transparent;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+    .socials{display:flex;gap:12px}
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+
+    /* -----------------------------
+       Responsive
+       ----------------------------- */
+    @media (max-width:1200px){
+      .hero__card{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .projects-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:680px){
+      /* hide primary nav and show mobile label */
+      nav ul{display:none}
+      .nav-toggle-label{display:block}
+
+      .hero{padding-top:120px}
+      .projects-grid,.blog-grid{grid-template-columns:1fr}
+      .section-title{padding:0 20px}
+      header{padding:6px 0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand__logo">JP</div>
+        <div class="brand__text">
+          <div style="font-weight:800">Jinesh Patil</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Chemical Engineer → Web Dev & Data Science</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul id="primaryNav">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero__card">
+        <div>
+          <h1>Hi — I'm <span style="background:linear-gradient(90deg,#79a7ff,#00e0f0);-webkit-background-clip:text;color:transparent;">Jinesh Patil</span></h1>
+          <p>Chemical Engineer transitioning to Web Development & Data Science. </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted)">
+            <strong>Looking for:</strong> Entry-level roles / internships in Web Development or Data Science • Open to relocation
+          </div>
+        </div>
+
+        <aside class="hero__photo">
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+            <div class="profile card" style="width:100%;text-align:center">
+              <img src="./jinesh patil.png" height="300px" width="300px"  alt="Jinesh Patil Profile">
+            </div>
+            <div style="width:100%">
+              <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+                <div>
+                  <div style="font-weight:700">open to work</div>
+                  <div class="muted" style="font-size:13px">Open to full-time & internships</div>
+                </div>
+                <div style="text-align:right">
+                  <a class="btn" href="#resume" style="padding:8px 12px">Resume</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title container"><h2>About Me</h2></div>
+      <div class="section-grid about container">
+        <div class="card bio">
+          <h3 style="margin-top:0">Chemical Engineer turned Developer & Data Enthusiast</h3>
+          <p class="muted">I graduated with a Chemical Engineering degree where I learned analytical problem solving, process optimization and data-driven decision making. During my final year projects I used data analysis and simulation tools which led me to explore programming and web technologies.</p>
+          <p class="muted">currently i'm pursuing online courses in web development and data science</p>
+
+          <ul style="margin-top:12px">
+            <li class="muted">• Strong foundation in mathematics, statistics and engineering principles</li>
+            <li class="muted">• Comfortable with SQL</li>
+            <li class="muted">• Quick learner with hands-on project experience</li>
+          </ul>
+        </div>
+
+        <aside class="card">
+          <h4 style="margin-top:0">Quick Facts</h4>
+          <p class="muted" style="margin:6px 0">Education: B.Tech — Chemical Engineering</p>
+          <p class="muted" style="margin:6px 0">Seeking roles: Web Dev, Data Analyst, ML Intern</p>
+          <div style="margin-top:12px">
+            <a class="btn" href="#projects">See Projects</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-title container"><h2>Skills</h2></div>
+      <div class="section-grid container">
+        <div class="card">
+          <h3 style="margin-top:0">Technical Skills</h3>
+          <div class="skill-list" style="margin-top:10px">
+            <span class="skill">HTML & CSS</span>
+            <span class="skill">SQL</span>
+          </div>
+
+          <h4 style="margin-top:18px">Soft Skills</h4>
+          <div class="muted" style="margin-top:8px">Analytical thinking · Problem solving · Team collaboration · Communication</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title container"><h2>Projects</h2></div>
+      <div class="section-grid container projects-grid">
+
+        <!-- Web Dev -->
+        <article class="project">
+          <img src="./image1.png" alt="Portfolio site screenshot">
+          <h3>Personal Portfolio Website</h3>
+          <p>Single-page responsive portfolio built with HTML & CSS. Includes projects and contact form.</p>
+          <div class="tags"><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">Design</span></div>
+          
+        </article>
+
+        <article class="project">
+<img src="./image2.png" alt="React app screenshot">
+<h3>Personal Resume</h3>
+<p> A responsive page built with HTML.  </p>
+<div class="tags"><span class="skill">HTML</span></div>
+<div style="margin-top:10px"><a href="https://jineshpatil45.github.io/Jinesh-Resume/" class="muted">View on GitHub</a></div>
+</article>
+
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="section-title container"><h2>Resume</h2></div>
+      <div class="section-grid container">
+        <div class="card" style="display:flex;flex-direction:column;gap:12px">
+          <p class="muted">Download a clean PDF copy of my <strong>resume.pdf</strong> </p>
+          <div class="resume-actions">
+            <a class="btn" href="Jinesh Vijaykumar Patil (Resume).pdf" download>Download Resume (PDF)</a>
+            <a class="btn secondary" href="#contact">Contact for more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title container"><h2>Contact</h2></div>
+      <div class="section-grid container contact-grid">
+
+        <div class="card">
+          <p class="muted">Email: <a href="jineshpatil68@gmail.com">jineshpatil68@gmail.com</a></p>
+          <p class="muted">Location: India</p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/jinesh-patil">Jinesh Patil</a></p>
+          <p class="muted">GitHub: <a href="https://https://github.com/JineshPatil45">JineshPatil45</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container" style="display:flex;flex-direction:column;gap:10px;align-items:center">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="font-weight:700">Jinesh Patil</div>
+          <div class="muted">•</div>
+          <div class="muted">Entry-level Web Dev & Data Science</div>
+        </div>
+        <div class="muted">© 2025 — Built with care.</div>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>
